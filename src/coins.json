@@ -40,7 +40,7 @@
 			"currency": "STEVMOS",
 			"date": "2023-08-29T07:10:40.000Z",
 			"price": 0.07276706779661017,
-			"image": "./assets/icons/coins/STEVMOS.svg"
+			"image": "./assets/icons/coins/stEVMOS.svg"
 		},
 		{
 			"currency": "LUNA",
@@ -52,7 +52,7 @@
 			"currency": "RATOM",
 			"date": "2023-08-29T07:10:40.000Z",
 			"price": 10.250918915254237,
-			"image": "./assets/icons/coins/RATOM.svg"
+			"image": "./assets/icons/coins/rATOM.svg"
 		},
 		{
 			"currency": "STRD",
@@ -94,7 +94,7 @@
 			"currency": "STOSMO",
 			"date": "2023-08-29T07:10:45.000Z",
 			"price": 0.431318,
-			"image": "./assets/icons/coins/STOSMO.svg"
+			"image": "./assets/icons/coins/stOSMO.svg"
 		},
 		{
 			"currency": "USDC",
@@ -118,7 +118,7 @@
 			"currency": "STATOM",
 			"date": "2023-08-29T07:10:45.000Z",
 			"price": 8.512162050847458,
-			"image": "./assets/icons/coins/STATOM.svg"
+			"image": "./assets/icons/coins/stATOM.svg"
 		},
 		{
 			"currency": "OSMO",
@@ -136,7 +136,7 @@
 			"currency": "STLUNA",
 			"date": "2023-08-29T07:10:40.000Z",
 			"price": 0.44232210169491526,
-			"image": "./assets/icons/coins/STLUNA.svg"
+			"image": "./assets/icons/coins/stLUNA.svg"
 		},
 		{
 			"currency": "LSI",

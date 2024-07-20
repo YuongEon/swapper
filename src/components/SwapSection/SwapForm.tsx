@@ -44,6 +44,8 @@ const SwapForm: React.FC = () => {
 		setData(coins.coins)
 	}, [])
 
+	console.log(data.find((coin) => coin.currency === 'RATOM'))
+
 
 	const cost = useMemo(() => {
 		const inputCoin = data.find((coin) => coin.currency === sell)
