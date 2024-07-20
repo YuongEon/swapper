@@ -2,14 +2,14 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "src/components/SwapSection/SwapSection.tsx",
+			"src": "src/components/swapSection/SwapSection.tsx",
 			"use": "@vercel/node"
 		}
 	],
 	"routes": [
 		{
 			"src": "/(.*)",
-			"dest": "src/components/SwapSection/SwapSection.tsx"
+			"dest": "src/components/swapSection/SwapSection.tsx"
 		}
 	]
 }
