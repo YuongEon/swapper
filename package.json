@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "concurrently \"react-scripts start\" \"json-server --watch public/assets/coins.json --port 3001\"",
+    "dev": "concurrently \"react-scripts start\" \"json-server --watch src/coins.json --port 3001\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

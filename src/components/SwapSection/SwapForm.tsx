@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, {useEffect, useMemo, useState } from 'react'
 import { ButtonPrimaryLight } from '../Button'
 import { FaArrowRightArrowLeft } from 'react-icons/fa6'
 import { ICoin, ICoinState } from '../../types/coin'
@@ -7,6 +7,7 @@ import { cn } from '../../utils/cn'
 import LoadingSpin from '../LoadingSpin'
 import CurrentCoinField from './CurrentCoinField'
 import SwapCoinField from './SwapCoinField'
+import coins from  '../../coins.json'
 
 const invalidValue = ['0', NaN, 'NaN']
 
@@ -29,19 +30,20 @@ const SwapForm: React.FC = () => {
 		amount: '0',
 	})
 
-	const fetchData = useCallback(async () => {
-		try {
-			const response = await fetch('/api/coins')
-			const result = await response.json()
-			setData(result)
-		} catch (error) {
-			console.error('Error fetching data:', error)
-		}
-	}, [])
+	// const fetchData = useCallback(async () => {
+	// 	try {
+	// 		const response = await fetch('/api/coins')
+	// 		const result = await response.json()
+	// 		setData(result)
+	// 	} catch (error) {
+	// 		console.error('Error fetching data:', error)
+	// 	}
+	// }, [])
 
 	useEffect(() => {
-		fetchData()
-	}, [fetchData])
+		setData(coins.coins)
+	}, [])
+
 
 	const cost = useMemo(() => {
 		const inputCoin = data.find((coin) => coin.currency === sell)
