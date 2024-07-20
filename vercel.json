@@ -1,15 +1,5 @@
 {
-	"version": 2,
-	"builds": [
-		{
-			"src": "src/components/swapSection/SwapSection.tsx",
-			"use": "@vercel/node"
-		}
-	],
-	"routes": [
-		{
-			"src": "/(.*)",
-			"dest": "src/components/swapSection/SwapSection.tsx"
-		}
+	"rewrites": [
+		{ "source": "/api/:path*", "destination": "/api/json-server.js" }
 	]
 }

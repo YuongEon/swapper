@@ -31,14 +31,11 @@ const SwapForm: React.FC = () => {
 
 	const fetchData = useCallback(async () => {
 		try {
-			const res = await fetch('/assets/coins.json')
-			if (!res.ok) {
-				throw new Error(`HTTP error! status: ${res.status}`)
-			}
-			const data = await res.json()
-			setData(data)
+			const response = await fetch('/api/coins')
+			const result = await response.json()
+			setData(result)
 		} catch (error) {
-			console.error('Fetch data error:', error)
+			console.error('Error fetching data:', error)
 		}
 	}, [])
 
