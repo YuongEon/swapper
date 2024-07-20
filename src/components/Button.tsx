@@ -41,7 +41,8 @@ export const ButtonPrimaryLight = (props: IButtonPrimaryLight) => {
 			{...props}
 			disabled={disabled}
 			className={cn(
-				'bg-main-light text-[#333] font-semibold',
+				'bg-main-light text-[#333] font-semibold transition-all',
+				disabled ? '' : 'hover:bg-[#d2beff]',
 				props.className
 			)}
 		>

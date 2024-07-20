@@ -8,10 +8,11 @@ interface ISwapFormField {
 	data: ICoin[]
 	lalel: string
 }
+
 const SwapFormField = (props: ISwapFormField) => {
 	const { coin, setCoin, data, lalel } = props
 
-	const { amount, name } = coin
+	const { name } = coin
 
 	useEffect(() => {
 		setValue(coin)
@@ -20,18 +21,34 @@ const SwapFormField = (props: ISwapFormField) => {
 	const [value, setValue] = useState(coin)
 
 	const handleChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const { value } = event.target
+		let { value } = event.target
 
-		const regex = new RegExp('^[0-9.,]*$')
+		const splitValue = value.split('')
 
-		if (!regex.test(value)) return
+		let valueConvert =
+			splitValue.length > 1 && splitValue[0] === '0' && splitValue[1] !== '.'
+				? splitValue[1] !== '.'
+					? splitValue[1]
+					: ''
+				: value
+
+		if (
+			splitValue[0] === '.' ||
+			(splitValue[splitValue.length - 1] === '.' &&
+				splitValue[splitValue.length - 2] === '.')
+		)
+			return
+
+		const regex = new RegExp('^[0-9.]*$')
+
+		if (!regex.test(valueConvert)) return
 
 		setValue({
-			amount: value,
+			amount: valueConvert,
 			name: name,
 		})
 		setCoin({
-			amount: event.target.value,
+			amount: valueConvert,
 			name: name,
 		})
 	}

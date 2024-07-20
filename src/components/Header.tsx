@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from './Logo'
 
 const navData = [
 	{
@@ -18,9 +19,7 @@ const navData = [
 const Header = () => {
 	return (
 		<div className="flex flex-row justify-between min-h-[60px] items-center">
-			<h3 className="uppercase text-[30px] text-white font-semibold">
-				<span className="text-main-light">S</span>wapper
-			</h3>
+			<Logo />
 			<Nav />
 		</div>
 	)

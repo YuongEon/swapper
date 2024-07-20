@@ -8,6 +8,8 @@ import { useSearchParams } from 'react-router-dom'
 import { cn } from '../../utils/cn'
 import LoadingSpin from '../LoadingSpin'
 
+const invalidValue = ['0', NaN, 'NaN']
+
 const SwapForm: React.FC = () => {
 	const [currentQueryParameters, setSearchParams] = useSearchParams()
 
@@ -58,11 +60,16 @@ const SwapForm: React.FC = () => {
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
+		if (
+			invalidValue.includes(currentCoin.amount) ||
+			invalidValue.includes(swapCoin.amount)
+		)
+			return
 		setIsSubmitting(true)
 		setTimeout(() => {
 			setIsSubmitting(false)
 			setIsSuccess(true)
-			setTimeout(() => setIsSuccess(false), 5000)
+			setTimeout(() => setIsSuccess(false), 1500)
 
 			setCurrentCoin({
 				amount: '0',
@@ -72,7 +79,7 @@ const SwapForm: React.FC = () => {
 				amount: '0',
 				name: buy,
 			})
-		}, 3000)
+		}, 2500)
 	}
 
 	const renderLoading = () => (
@@ -90,7 +97,12 @@ const SwapForm: React.FC = () => {
 				<span className="text-white text-[18px] font-normal pb-4">
 					Congratulations on your successful transaction!
 				</span>
-				<LoadingSpin />
+				<div className="flex justify-center items-center gap-2">
+					<LoadingSpin />
+					<span className="text-slate-100 text-[16px]">
+						Please wait a few secounds...
+					</span>
+				</div>
 			</div>
 		</div>
 	)
@@ -137,11 +149,15 @@ const SwapForm: React.FC = () => {
 				<ButtonPrimaryLight
 					className={cn(
 						'px-6 py-2 rounded-full',
-						+currentCoin.amount === 0 || +swapCoin.amount === 0
+						invalidValue.includes(currentCoin.amount) ||
+							invalidValue.includes(swapCoin.amount)
 							? 'opacity-50 cursor-default'
 							: ''
 					)}
-					disabled={+currentCoin.amount === 0 || +swapCoin.amount === 0}
+					disabled={
+						invalidValue.includes(currentCoin.amount) ||
+						invalidValue.includes(swapCoin.amount)
+					}
 				>
 					Confirm swap
 				</ButtonPrimaryLight>

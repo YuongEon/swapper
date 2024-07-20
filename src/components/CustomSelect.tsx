@@ -88,7 +88,7 @@ interface IOptionList {
 
 const OptionList = ({ children, onClose }: IOptionList) => {
 	return (
-		<div className="absolute mt-5 top-[100%] right-0 bg-white text-[#333] rounded-[6px] overflow-hidden">
+		<div className="absolute z-10 mt-5 top-[100%] right-0 bg-white text-[#333] rounded-[6px] overflow-hidden">
 			<div className="max-h-[300px] overflow-y-auto p-3">
 				{React.Children.map(children, (child) => {
 					if (React.isValidElement(child)) {
