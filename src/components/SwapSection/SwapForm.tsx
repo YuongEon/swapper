@@ -2,11 +2,11 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { ButtonPrimaryLight } from '../Button'
 import { FaArrowRightArrowLeft } from 'react-icons/fa6'
 import { ICoin, ICoinState } from '../../types/coin'
-import CurrentCoinField from './CurrentCoinField'
-import SwapCoinField from './SwapCoinField'
 import { useSearchParams } from 'react-router-dom'
 import { cn } from '../../utils/cn'
 import LoadingSpin from '../LoadingSpin'
+import CurrentCoinField from './CurrentCoinField'
+import SwapCoinField from './SwapCoinField'
 
 const invalidValue = ['0', NaN, 'NaN']
 
@@ -31,7 +31,7 @@ const SwapForm: React.FC = () => {
 
 	const fetchData = useCallback(async () => {
 		try {
-			const res = await fetch('http://localhost:3001/coins')
+			const res = await fetch('/assets/coins.json')
 			const data = await res.json()
 			setData(data)
 		} catch (error) {
